@@ -1,0 +1,10 @@
+extends layout
+
+block content
+	include layout/alert.jade
+	div.jumbotron
+		div.container
+			if (user)
+				include layout/say.jade
+	div.container
+		include layout/posts.jade

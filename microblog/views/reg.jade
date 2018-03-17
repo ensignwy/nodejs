@@ -1,0 +1,27 @@
+extends layout
+
+block content
+	div#container.container
+		include layout/alert.jade
+		// 一般写法是form要指定一个aciton的，这个action就是它要进行处理的路径，如果不指定的话表单会提交到它被加载进来时的
+		//同一URL,比如这个页面的url是http://localhost:3000/reg，那么会提交到POST请求的http://localhost:3000/reg，
+		//可以省略action，直接写一个reg的post方法，它默认就会走这个方法
+		form(class="form-horizontal" method="post")
+			fieldset
+				legend 用户注册
+				div.form-group
+					label(class="control-label col-md-2" for="username") 用户名
+					div.col-md-4
+						input(type="text" class="form-control" id="username" name="username")
+						p.help-block 你的账户名，用于登陆和显示
+				div.form-group
+					label(class="control-label col-md-2" for="password") 密码
+					div.col-md-4
+						input(type="password" class="form-control" id="password" name="password")
+				div.form-group
+					label(class="control-label col-md-2" for="password") 重复输入密码
+					div.col-md-4
+						input(type="password" class="form-control" id="password-repeat" name="password-repeat")
+				div.form-group
+					div.col-md-offset-2.col-md-4
+						button(type="submit" class="btn btn-primary") 注册

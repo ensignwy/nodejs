@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <script type="text/javascript">
+    	window.onload=function(){
+    		//例子1
+    		// var scope='global';
+			// var f=function(){
+			// 	console.log(scope);
+			// 	scope='f';
+			// }
+			// f();
+			
+			//例子2
+			// var f=function(){
+			// 	var scope='f0';
+			// 	(function(){
+			// 		var scope='f1';
+			// 		(function(){
+			// 			console.log(scope)
+			// 		})();
+			// 	})();
+			// }
+			// f();
+			
+			/**
+			 * 例子3：函数作用域的嵌套关系是定义时决定的而不是调用时决定的，也就是说javascript的作用域是静态作用域，又叫此法作用域，这是因为嵌套关系在语法分析时确定，而不必等到运行时确定，下面的例子说明这一切
+			 */
+			// var scope='top';
+			// var f1=function(){
+			// 	console.log(scope);
+			// }
+			// f1();//输出top
+			// var f2=function(){
+			// 	var scope='f2';
+			// 	f1();
+			// }
+			// f2();//输出top
+			
+
+			/**
+			 * 理解闭包，从嵌套函数开始
+			 */
+			// var generateClosure=function(){
+			// 	var count=0;
+			// 	var get=function(){
+			// 		count++;
+			// 		return count;
+			// 	}
+			// 	return get;
+			// }
+			// var counter1=generateClosure();
+			// var counter2=generateClosure();
+			// console.log(counter1()); //1
+			// console.log(counter2()); //1
+			// console.log(counter1()); //2
+			// console.log(counter1()); //3
+			// console.log(counter2()); //2
+			
+
+			/**
+			 * call实现对象的继承
+			 */
+			var someuser={
+				name:'peng',
+				dispaly:function(words){
+					console.log(this.name+' says '+words);
+				}
+			}
+			var foo={
+				name:'foobar'
+			};
+			someuser.dispaly.call(foo,'hello');
+    	}
+    	
+    </script>
+</body>
+</html>

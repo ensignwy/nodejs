@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	include layout/alert.jade
+	div.jumbotron
+		div.container
+			if (!user)
+				h1 欢迎来到Microblog
+				p Microblog是一个基于Node.js的微博系统
+				p
+					a(class="btn btn-primary btn-large" href="/login") 登陆
+					a(class="btn btn-default btn-large" href="/reg") 立即注册
+			else
+				include layout/say.jade
+	include layout/posts.jade

@@ -1,0 +1,10 @@
+/*
+保存数据库连接信息
+*/
+module.exports={
+	//用于cookie加密
+	cookieSecret:'microblogensign',
+	url:'mongodb://localhost:27017',
+	db:'microblog',
+	host:'localhost'
+}
